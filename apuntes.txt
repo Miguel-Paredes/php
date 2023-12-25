@@ -1,0 +1,142 @@
+// Imprime el tipo de variable que es
+var_dump(-10);
+// En String indica la cantidad de caracteres de la misma
+var_dump("Hola mundo")
+
+Declarar variables
+$nombre="Miguel";
+echo $nombre;
+
+
+Upper Camel Case
+EjemploDeString
+Lower Camel Case
+ejemploDeString
+
+Upper Case
+EJEMPLODESTRING
+Snake Case
+ejemplo_de_string
+
+
+Definir constantes
+// Forma de definir constante antiguamente
+define("nombre","Miguel");
+echo nombre;
+// Forma moderna
+const Nombre = "Miguel";
+echo Nombre;
+
+Definir array
+// Forma de declarar array
+define("Alumnos", array(
+    "Miguel",
+    "Angel"
+));
+echo Alumnos[1];
+
+
+// Arrays de tipo multiplesdimensiones
+$tutor2 = [
+    "nombre"=>"Miguel",
+    "apellido"=>"Paredes",
+    "edad"=>20,
+    "cursos"=>["PHP","GIT","GITHUB"]
+];
+// Agregar valores al array
+$tutor2["pais"]="Ecuador";
+echo $tutor2["cursos"][0];
+echo $tutor2["pais"];
+
+// Contar elementos de un array
+echo count($estudiantes);
+echo count($tutor);
+echo count($tutor2);
+
+// Contar elementos de un array multidimensional
+echo count($tutor2, COUNT_RECURSIVE);
+
+// Concatenar String
+$nombre = "Miguel ";
+$pais = "Ecuador";
+echo " Mi nombre es: ".$nombre;
+echo " Mi pais de recidencia es: $pais";
+echo " Mi nombre es: {$nombre}";
+
+// Operadores += -= *= /= .=
+$texto = "Texto de prueba ";
+$texto .= 2;
+echo $texto;
+
+// Tipos de asignacion
+$texto = "Ecuador";
+// Almacena la informacion como una constante
+$var1 = $texto;
+// Almacena la informacion de texto asi se modifique en la ejecucion
+$var2 = &$texto;
+
+echo "Varibale 1 {$var1} ";
+echo "Variable 2 {$var2} ";
+$texto = "Miguel Paredes";
+echo "Varibale 1 {$var1} ";
+echo "Variable 2 {$var2} ";
+
+// Otra forma de !=
+var_dump (1<>"1");
+
+// Aumento o disminucion
+$numero = 9;
+echo ++$numero;
+// Primero muestra el valor y luego lo aumenta
+echo $numero++;
+echo $numero;
+
+// Otra manera de informacion        if(1>=0):
+echo "Expresion verdadera";
+endif;
+
+// En codigo html if y else
+<?php if(-1>=0):?>
+    <h1>"Expresion verdadera";</h1>
+<?php else:?>
+    <h1>"Expresion falsa";</h1>
+<?php endif;?>
+
+// Forma rara de if y else
+                  if    else
+$total = (9>7) ? 10*7 : 10*5;
+
+// Swich
+$fruta = "Fresa";
+switch($fruta){
+    case "Fresa":
+        echo "Es una fresa";
+        break;
+    case "Pera":
+        echo "Es una Pera";
+        break;
+    default:
+        echo "No es una fruta";
+}
+
+// Otra forma de switch
+$a = 7;
+$x = 10;
+$y = 9;
+$z = 7;
+
+$resultado = match ($a) {
+    $x => "Valor igual a x",
+    $y => "Valor igual a y",
+    7 => "Hola mundo",
+    // Doble comparacion
+    $x ,$y => "Valor igual a x o y",
+    default => "No coincide con ninguna variable",
+};
+$edad = 18;
+$resultado = match (true) {
+    $edad >= 60 => "Eres de la tercera edad",
+    $edad >= 30 => "Eres un adulto",
+    $edad >= 18 => "Eres un adulto joven",
+    default => "Eres un niño"
+};
