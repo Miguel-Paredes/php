@@ -224,3 +224,81 @@ echo number_format($val1);
 echo number_format($val1,2);
 // Coloca separador de unidades y decimales; elejimos el separador de decimales y el separador de unidades
 echo number_format($val1,2,".","");
+
+// Funciones con fecha y hora
+date_default_timezone_set("America/Guayaquil");
+echo date("d");
+echo date("l");
+echo date("F");
+$fecha_date = date("Y");
+echo $fecha_date;
+$fecha_date = date("Y-m-d");
+echo $fecha_date;
+$fecha_date = date("d-m-Y");
+echo $fecha_date;
+$fecha_date = date("l d F Y");
+echo $fecha_date;
+$hora = date("h:i a");
+echo $hora;
+
+// Verificar contraseñas
+$clave = "HolaMundo123";
+$clave1 = "12345678";
+$clave_procesada = password_hash($clave,PASSWORD_BCRYPT,["cost"=>11]);
+echo password_verify($clave,$clave_procesada) ? "Clave correcta" : "Clave incorrecta";
+echo password_verify($clave1,$clave_procesada) ? "Clave correcta" : "Clave incorrecta";
+
+// Pedir datos al usuario
+<input type="text" name="nombre">
+echo $_POST ['nombre'];
+
+// Eliminar variable
+$numero2 = "9";
+unset($numero2);
+echo (is_null($numero2)) ? "Variable NULL" : "Variable con valor";
+
+// Metodo empty
+$val1 = "9";
+$val2 = "";
+echo (empty($val1)) ? "Variable vacia" : "No esta vacia";
+echo (empty($val2)) ? "Variable vacia" : "No esta vacia";
+
+// Saber si una variable esta o no definida
+echo (isset($val2)) ? "Variable definida" : "Variable no definida";
+
+// Obtener informacion de un archivo
+echo $_FILES['fichero']['name']."<br>";
+echo $_FILES['fichero']['tmp_name']."<br>";
+echo $_FILES['fichero']['type']."<br>";
+echo $_FILES['fichero']['error']."<br>";
+echo $_FILES['fichero']['size']."<br>";
+
+// Guardar el archivo en el servidor
+if (!file_exists("archivos")){
+    if(!mkdir("archivos",0777)){
+        echo "Error al crear el directorio";
+        exit();
+    } 
+}
+chmod("archivos",0777);
+if(move_uploaded_file($_FILES['fichero']['tmp_name'], "archivos/".$_FILES['fichero']['name'])){
+    echo "Archivo subido con exito";
+}else{
+    echo "No se ha subido con exito el archivo";
+}
+
+// Limitar el tipo de archivos a cargar
+<input type="file" name="fichero" accept=".jpg, .jng, .jepg">
+if(mime_content_type($_FILES['fichero']['tmp_name']) != "image/jepg" &&
+    mime_content_type($_FILES['fichero']['tmp_name']) != "image/png"
+){
+    echo "Tipo de fichero no admitido";
+    exit();
+}
+
+// Limitar el paso 
+// Transformando a Mb
+if(($_FILES['fichero']['size']/1024)>3072){
+    echo "El archivo supera el peso permitido";
+    exit();
+}
