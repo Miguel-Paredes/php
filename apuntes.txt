@@ -3,22 +3,6 @@ var_dump(-10);
 // En String indica la cantidad de caracteres de la misma
 var_dump("Hola mundo")
 
-Declarar variables
-$nombre="Miguel";
-echo $nombre;
-
-
-Upper Camel Case
-EjemploDeString
-Lower Camel Case
-ejemploDeString
-
-Upper Case
-EJEMPLODESTRING
-Snake Case
-ejemplo_de_string
-
-
 Definir constantes
 // Forma de definir constante antiguamente
 define("nombre","Miguel");
@@ -91,7 +75,8 @@ echo ++$numero;
 echo $numero++;
 echo $numero;
 
-// Otra manera de informacion        if(1>=0):
+// Otra manera de informacion        
+if(1>=0):
 echo "Expresion verdadera";
 endif;
 
@@ -140,3 +125,102 @@ $resultado = match (true) {
     $edad >= 18 => "Eres un adulto joven",
     default => "Eres un niño"
 };
+
+// Parar ejecucion del codigo
+$c = 1;
+while($c<=20){
+    echo $c."<br>";
+    if($c==10){
+        break;
+    }
+    $c++;
+}
+
+// Saltar una porcion de codigo
+$pc = ["SO","SSD","GPU","RAM","CPU"];
+foreach($pc as $valores){
+    if($valores=="GPU"){
+        continue;
+    }
+    echo $valores."<br>";
+}
+
+// INCLUDE Y REQUIRE
+// Si no existe el archivo se sigue ejecutando
+echo "INCLUDE <br>";
+include ("bucles.php");
+include "bucles.php";
+echo "<br>";
+// Si no existe el archivo no se ejecuta
+echo "REQUIRE <br>";
+require "bucles.php";
+
+// Si ya se ejecuto el archivo no se repite
+echo "REQUIRE_ONCE <br>";
+require_once "bucles.php";
+echo "INCLUDE_ONCE <br>";
+include_once "bucles.php";
+
+// Funciones con String
+$cadena_texto = "hola mi nombre es Miguel Paredes";
+// Texto en minuscula
+echo "Funcion strtolower <br>".strtolower($cadena_texto);
+// Texto en mayuscula
+echo "Funcion strtoupper <br>".strtoupper($cadena_texto);
+// Primera letra en mayuscula
+echo "Funcion ucfirst <br>".ucfirst($cadena_texto);
+// Cada primera letra en mayuscula
+echo "Funcion ucwords <br>".ucwords($cadena_texto);
+
+// Caracteres de un string
+$longitud = strlen($cadena_texto);
+echo "Caracteres de un string <br>".$longitud;
+// Contar palabras
+$palabras = str_word_count($cadena_texto);
+echo "Contar palabras <br>".$palabras;
+
+// Construccion de arrays definiendos
+$fecha1 = "2021/11/29";
+$numeros = "Uno Dos Tres Cuatro Cinco Seis Siete Ocho";
+
+$array_string = explode("/",$fecha1);
+for($i=0 ; $i<count($array_string) ; $i++){
+echo $array_string[$i]."<br>";
+}
+echo "<br>Usando delimitador<br>";
+$array_string = explode(" ",$numeros,4);
+for($i=0 ; $i<count($array_string) ; $i++){
+echo $array_string[$i]."<br>";
+}
+echo "<br>Usando delimitador negativo<br>";
+$array_string = explode(" ",$numeros,-1);
+for($i=0 ; $i<count($array_string) ; $i++){
+echo $array_string[$i]."<br>";
+}
+
+// Funciones Matematicas
+// Elevado
+echo pow(2,100);
+// Raiz
+echo sqrt(9);
+// Random
+echo rand(1,100);
+// Numero pi
+echo pi();
+// Redondear valores
+echo round(4.5);
+// Elegir cuantos decimales va a redondear
+echo round(4.987654321, 4);
+// Redondea valores para abajo
+echo floor(4.3);
+// Redondea valores para arriba
+echo ceil(4.3);
+
+// Formatear numeros
+$val1 = 123456789.7654;
+// Coloca separador de unidades
+echo number_format($val1);
+// Coloca separador de unidades y decimales
+echo number_format($val1,2);
+// Coloca separador de unidades y decimales; elejimos el separador de decimales y el separador de unidades
+echo number_format($val1,2,".","");

@@ -6,7 +6,7 @@
     <title>Document</title>
     <style>
         table{
-            width:40%;
+            width:50%;
         }
     </style>
 </head>
@@ -45,8 +45,30 @@
                 <td>
                     <?php
                         echo "BUCLE FOR EACH <BR>";
-                        for($contador = 1; $contador <= 20; $contador++){
-                            echo $contador."<br>";
+                        $laptop = ["Acer Nitro 5", "Windows 11", "AMD Ryzen 5 4600H", "SSD 256GB", "RAM 24GB"];
+                        $frutas = [
+                            "Fresas"=>100,
+                            "Peras"=>30,
+                            "Sandias"=>10,
+                            "Melocotones"=>17,
+                            "Manzanas"=>9
+                        ];
+                        echo "<br>Bucle solo con valores <br>";
+                        foreach($laptop as $valor){
+                            echo $valor."<br>";
+                        }
+                        echo "<br>Bucle solo con valores y clave <br>";
+                        foreach($frutas as $clave => $valor){
+                            echo $clave." - ".$valor."<br>";
+                        }
+                        $productos = [
+                            ["codigo"=>"A001","descripcion"=>"Mouse"],
+                            ["codigo"=>"A002","descripcion"=>"Teclado"],
+                            ["codigo"=>"A003","descripcion"=>"Monitor"],
+                            ["codigo"=>"A004","descripcion"=>"Impresor"]
+                        ];
+                        foreach($productos as $pd){
+                            echo $pd["codigo"]." - ".$pd["descripcion"]."<br>";
                         }
                     ?>
                 </td>
