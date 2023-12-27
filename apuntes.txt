@@ -302,3 +302,15 @@ if(($_FILES['fichero']['size']/1024)>3072){
     echo "El archivo supera el peso permitido";
     exit();
 }
+
+// Cookies
+setcookie("Nombre", valor, expiracion, directorio, dominio, secure, httponly);
+
+// Eliminar cookie
+setcookie("Idioma", "es", time()-60*60*24*365,"/","localhost",false,true);
+
+// Crear cookies para usar en php
+session_name("LOGIN");
+session_start();
+// Eliminar la cookie
+session_destroy();

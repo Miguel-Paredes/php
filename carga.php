@@ -1,9 +1,9 @@
 <?php
-    echo $_FILES['fichero']['name']."<br>";
-    echo $_FILES['fichero']['tmp_name']."<br>";
-    echo $_FILES['fichero']['type']."<br>";
-    echo $_FILES['fichero']['error']."<br>";
-    echo $_FILES['fichero']['size']."<br>";
+    // echo $_FILES['fichero']['name']."<br>";
+    // echo $_FILES['fichero']['tmp_name']."<br>";
+    // echo $_FILES['fichero']['type']."<br>";
+    // echo $_FILES['fichero']['error']."<br>";
+    // echo $_FILES['fichero']['size']."<br>";
 
     if(mime_content_type($_FILES['fichero']['tmp_name']) != "image/jepg" &&
        mime_content_type($_FILES['fichero']['tmp_name']) != "image/png"
