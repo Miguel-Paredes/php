@@ -1,4 +1,2 @@
 <?php
-    function s(){
-        echo "<br>";
-    }
+    function s(){echo "<br>";}

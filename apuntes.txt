@@ -309,8 +309,40 @@ setcookie("Nombre", valor, expiracion, directorio, dominio, secure, httponly);
 // Eliminar cookie
 setcookie("Idioma", "es", time()-60*60*24*365,"/","localhost",false,true);
 
-// Crear cookies para usar en php
+// Crear Sesiones
 session_name("LOGIN");
 session_start();
-// Eliminar la cookie
+// Eliminar Sesiones
 session_destroy();
+
+// Para redireccionar 
+header("Location: contador.php");
+echo "<script> window.location.href='index.php'</script>";
+
+if(headers_sent()){
+    echo "<script> window.location.href='contador.php'</script>";            
+}else{
+    header("Location: contador.php");
+}
+
+
+// EN EL HTML
+// Limitar el ingreso de caracteres
+<input type="text" name="usuario" pattern="[a-zA-Z]">
+solo letras de la A a la Z
+// Se ingresan de 3 a 10 caracteres como maximo
+<input type="text" name="usuario" pattern="[a-zA-Z]{3,10}">
+// Permite ingresar  tambien numeros 
+<input type="password" name="clave" pattern="[a-zA-Z0-9]{4,30}" maxalength="30">
+// maxalength="10" limita a colocar 10 caracteres
+<input type="text" name="usuario" pattern="[a-zA-Z]{3,10}" maxalength="10">
+
+// EN PHP
+if(!preg_match("/^[a-zA-Z]{3,10}$/",$_POST['usuario'])){
+    echo "El usuario no coincide con el formato solicitado";
+    exit();
+}
+if(!preg_match("/^[a-zA-Z0-9]{4,30}$/",$_POST['clave'])){
+    echo "La contraseña no coincide con el formato solicitado";
+    exit();
+}
